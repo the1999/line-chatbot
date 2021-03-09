@@ -8,8 +8,6 @@ try {
         print "<br/>";
         print $row["d_date"].$row["d_detail"].'<br/>';
     }
- 
-
     
 } catch(PDOException $e) {
     echo $e->getMessage();
