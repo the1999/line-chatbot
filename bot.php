@@ -50,26 +50,26 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         }';
         $replyText = json_decode($message);   
 } 
-else if ($text == "ดูรายชื่อพนักงาน") {
-    $sql_query2 = "SELECT * FROM tb_user";
-    $myPDO->query($sql_query2);
-    foreach($myPDO->query($sql) as $row) {
-        $ID1 = [1]['d_id'];
-        $ID2 = [2]['d_id'];   
-        $ID3 = [3]['d_id']; 
-        $ID4 = [4]['d_id']; 
-        $d_name1 = [1]['d_name'];
-        $d_name2 = [2]['d_name'];
-        $d_name3 = [3]['d_name'];
-        $d_name4 = [4]['d_name'];
-        $row1 = $row1.$d_name1;
-        $row2 = $row2.$d_name2;
-        $row3 = $row3.$d_name3;
-        $row4 = $row4.$d_name4;
-        }
-    $replyText["type"] = "text";
-    $replyText["text"] = "$row1.$row2.$row3.$row4";
-}
+// else if ($text == "ดูรายชื่อพนักงาน") {
+//     $sql_query2 = "SELECT * FROM tb_user";
+//     $myPDO->query($sql_query2);
+//     foreach($myPDO->query($sql) as $row) {
+//         $ID1 = [1]['d_id'];
+//         $ID2 = [2]['d_id'];   
+//         $ID3 = [3]['d_id']; 
+//         $ID4 = [4]['d_id']; 
+//         $d_name1 = [1]['d_name'];
+//         $d_name2 = [2]['d_name'];
+//         $d_name3 = [3]['d_name'];
+//         $d_name4 = [4]['d_name'];
+//         $row1 = $row1.$d_name1;
+//         $row2 = $row2.$d_name2;
+//         $row3 = $row3.$d_name3;
+//         $row4 = $row4.$d_name4;
+//         }
+//     $replyText["type"] = "text";
+//     $replyText["text"] = "$row1.$row2.$row3.$row4";
+// }
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
