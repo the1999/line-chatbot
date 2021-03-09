@@ -1,5 +1,6 @@
 <?php
-
+require_once ('vendor/autoload.php');
+require_once ('connect.php');
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData,true);
 
