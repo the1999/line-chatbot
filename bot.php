@@ -54,18 +54,18 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
     foreach($myPDO->query($sql) as $row) {
-        $ID1 = [1]['ID'];
-        $ID2 = [2]['ID'];   
-        $ID3 = [3]['ID']; 
-        $ID4 = [4]['ID']; 
-        $n_name1 = [1]['n_name'];
-        $n_name2 = [2]['n_name'];
-        $n_name3 = [3]['n_name'];
-        $n_name4 = [4]['n_name'];
-        $row1 = $row1.$n_name1;
-        $row2 = $row2.$n_name2;
-        $row3 = $row3.$n_name3;
-        $row4 = $row4.$n_name4;
+        $ID1 = [1]['d_id'];
+        $ID2 = [2]['d_id'];   
+        $ID3 = [3]['d_id']; 
+        $ID4 = [4]['d_id']; 
+        $d_name1 = [1]['d_name'];
+        $d_name2 = [2]['d_name'];
+        $d_name3 = [3]['d_name'];
+        $d_name4 = [4]['d_name'];
+        $row1 = $row1.$d_name1;
+        $row2 = $row2.$d_name2;
+        $row3 = $row3.$d_name3;
+        $row4 = $row4.$d_name4;
         }
     $replyText["type"] = "text";
     $replyText["text"] = "$row1.$row2.$row3.$row4";
