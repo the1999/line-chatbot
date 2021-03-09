@@ -23,6 +23,11 @@ function sendMessage($replyJson, $sendInfo){
    curl_close($ch);
    return $result;
 }
+if ($sql_query1) {
+    echo "pass";
+} else {
+    echo "not pass";
+}
   
 $val = (explode(",",$text));
 
@@ -65,11 +70,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $replyText["type"] = "text";
     $replyText["text"] = "$row1+''+$row2";
 }
-if ($sql_query1) {
-    echo "pass";
-} else {
-    echo "not pass";
-}
+
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
