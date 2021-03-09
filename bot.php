@@ -42,15 +42,21 @@ else if ($text == "1") {
     $replyText = json_decode($message);
 } 
 
-// else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val)) {
-//     $sql_query1 = "INSERT INTO tb_leave (d_date, d_detail) VALUES ('".$val[0]."','".$val[1]."')";
-//     $myPDO->query($sql_query1);
-//         $message = '{
-//             "type" : "text",
-//             "text" : "บันทึกเรียบร้อย"
-//         }';
-//         $replyText = json_decode($message);   
-// } 
+else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val)) {
+    $sql_query1 = "INSERT INTO tb_leave (d_date, d_detail) VALUES ('".$val[0]."','".$val[1]."')";
+    $myPDO->query($sql_query1);
+        $message = '{
+            "type" : "text",
+            "text" : "บันทึกเรียบร้อย"
+        }';
+        $replyText = json_decode($message);   
+        if ($sql_query1) {
+            echo "pass";
+        } else {
+            echo "not pass";
+        }
+} 
+
 else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
