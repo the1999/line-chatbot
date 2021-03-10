@@ -66,7 +66,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $d_name2 = $row[2]['d_name'];
         $d_name3 = $row[3]['d_name'];
         $d_name4 = $row[4]['d_name'];
-        $row = '$d_id1.$d_name1 /n $d_id2.$d_name2 /n $d_id3.$d_name3 /n $d_id4.$d_name4';
+        $row = '$d_id1,$d_name1 . $d_id2,$d_name2 . $d_id3,$d_name3 . $d_id4,$d_name4';
         }
     $replyText["type"] = "text";
     $replyText["text"] = "$row";
