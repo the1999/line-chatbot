@@ -56,16 +56,24 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
 else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
-    foreach ($id as $value) { 
-    $d_id1 = [1]['d_id']['d_name'];
-    $d_id2 = [2]['d_id']['d_name'];
-    $d_id3 = [3]['d_id']['d_name'];
-    $d_id4 = [4]['d_id']['d_name'];
-    $id = array($d_id1.$d_id2.$d_id3.$d_id4);
+    $d_id1 = $row[1]['d_id']['d_name'];
+    $d_id2 = $row[2]['d_id']['d_name'];
+    $d_id3 = $row[3]['d_id']['d_name'];
+    $d_id4 = $row[4]['d_id']['d_name'];
+    $arr =  '$d_id1'.'$d_id2'.'$d_id3'.'$d_id4';
+    foreach ($row as $arr) {
+        $arr .= $row;
+    } echo $arr;
+//     foreach ($id as $value) { 
+//     $d_id1 = [1]['d_id']['d_name'];
+//     $d_id2 = [2]['d_id']['d_name'];
+//     $d_id3 = [3]['d_id']['d_name'];
+//     $d_id4 = [4]['d_id']['d_name'];
+//     $id = array($d_id1.$d_id2.$d_id3.$d_id4);
     
-       $replyText["type"] = "text";
-        $replyText["text"] = "$value";
-}
+//        $replyText["type"] = "text";
+//         $replyText["text"] = "$value";
+// }
 }
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
