@@ -57,7 +57,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
     foreach($myPDO->query($sql_query2) as $row) {
-        $row[1]["d_date"].$row[2]["d_detail"];
+        $row .= $value;
         }
     $replyText["type"] = "text";
     $replyText["text"] = "$row";
