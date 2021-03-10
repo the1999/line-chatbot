@@ -62,11 +62,11 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $d_id4 = $row[4]['d_id']['d_name'];
     $arr =  array('$d_id1'.'$d_id2'.'$d_id3'.'$d_id4');
     foreach ($arr as $row) {
-        $arr .= $row;
+        $row .= $arr;
     } 
-    echo $arr;
+    echo $row;
     $replyText["type"] = "text";
-    $replyText["text"] = "$arr";
+    $replyText["text"] = "$row";
 //     foreach ($id as $value) { 
 //     $d_id1 = [1]['d_id']['d_name'];
 //     $d_id2 = [2]['d_id']['d_name'];
