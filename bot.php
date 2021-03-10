@@ -67,8 +67,9 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $test;
         while($row) {
           $test .= $row;
-          echo $test; 
-        }       
+           
+        }  
+        echo $test;     
     } 
     
     $replyText["type"] = "text";
