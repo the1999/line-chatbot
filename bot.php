@@ -66,20 +66,19 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
 //     $replyText["type"] = "text";
 //     $replyText["text"] = "$row";
 // }
-// else if ($text == "ดูรายชื่อพนักงาน") {
-//     $sql_query2 = "SELECT * FROM tb_user";
-//     $myPDO->query($sql_query2);
-//     $d_id1 = $row[1]['d_id']['d_name'];
-//     $d_id2 = $row[2]['d_id']['d_name'];
-//     $d_id3 = $row[3]['d_id']['d_name'];
-//     $d_id4 = $row[4]['d_id']['d_name'];
-//     $arr =  array('$d_id1'.'$d_id2'.'$d_id3'.'$d_id4');
-//     foreach ($arr as $row) {
-//         $row .= $arr;
-//     } 
+else if ($text == "ดูรายชื่อพนักงาน") {
+    $sql_query2 = "SELECT * FROM tb_user";
+    $myPDO->query($sql_query2);
+    foreach ($myPDO->query($sql_query2) as $rows) {
+    $d_id1 = $row[1]['d_id']['d_name'];
+    $d_id2 = $row[2]['d_id']['d_name'];
+    $d_id3 = $row[3]['d_id']['d_name'];
+    $d_id4 = $row[4]['d_id']['d_name'];
+    $rows =  array('$d_id1'.'$d_id2'.'$d_id3'.'$d_id4');
+    } 
 
-//     $replyText["type"] = "text";
-//     $replyText["text"] = "$row";
+    $replyText["type"] = "text";
+    $replyText["text"] = "$rows";
 //     foreach ($id as $value) { 
 //     $d_id1 = [1]['d_id']['d_name'];
 //     $d_id2 = [2]['d_id']['d_name'];
