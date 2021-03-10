@@ -58,8 +58,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $myPDO->query($sql_query2); 
     $test;
     foreach ($row as $test) {
-        $test .= $row;  
-        echo $test;          
+        $test .= $row;         
     {
         $d_id1 = $test[1]['d_id']['d_name'];
         $d_id2 = $test[2]['d_id']['d_name'];
