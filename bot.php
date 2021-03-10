@@ -62,8 +62,10 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $d_id4 = $row[4]['d_id']['d_name'];
     $id = $d_id1.$d_id2.$d_id3.$d_id4;
     foreach ($id as $value) {
-        $replyText["type"] = "text";
-        $replyText["text"] = "$value";
+        echo $replyText["type"] = "text";
+            $replyText["text"] = "$value";
+        // $replyText["type"] = "text";
+        // $replyText["text"] = "$value";
 }
 }
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
