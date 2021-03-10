@@ -65,7 +65,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $value = $d_id1.$d_id2.$d_id3.$d_id4;
         $row .= $value;
         $test;
-        if (!$row) {
+        while($row) {
           $test .= $row;
           echo $test; 
         }       
