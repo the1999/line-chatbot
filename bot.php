@@ -58,16 +58,20 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $myPDO->query($sql_query2);
     
     foreach($myPDO->query($sql_query2) as $row) {
-        $d_id1 = [1]['d_id']['d_name'];
-        $d_id2 = [2]['d_id']['d_name'];
-        $d_id3 = [3]['d_id']['d_name'];
-        $d_id4 = [4]['d_id']['d_name'];
+        $d_id1 = $row[1]['d_id']['d_name'];
+        $d_id2 = $row[2]['d_id']['d_name'];
+        $d_id3 = $row[3]['d_id']['d_name'];
+        $d_id4 = $row[4]['d_id']['d_name'];
         $value = $d_id1.$d_id2.$d_id3.$d_id4;
         $row .= $value;       
-     
-    }   
+    } 
+     $test;
+      while ($row) {
+        $test .= $row;
+        echo $test; 
+      }
     $replyText["type"] = "text";
-    $replyText["text"] = "$row";
+    $replyText["text"] = "$test";
 }
 
 
