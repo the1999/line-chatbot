@@ -61,12 +61,12 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $d_id3 = $test[3]['d_id']['d_name'];
         $d_id4 = $test[4]['d_id']['d_name'];
         $test = $d_id1.$d_id2.$d_id3.$d_id4;
-        foreach ($test as $value) {
-            echo $value;
-        }
+        foreach ($test as $test) {
+            echo $test;
+        
     $replyText["type"] = "text";
-    $replyText["text"] = "$value";
-
+    $replyText["text"] = "$test";
+}
 }
 
 
