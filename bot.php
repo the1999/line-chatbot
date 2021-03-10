@@ -65,6 +65,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $arr .= $row;
       
     } 
+    echo $arr;
     $replyText["type"] = "text";
     $replyText["text"] = "$arr";
 //     foreach ($id as $value) { 
