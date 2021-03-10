@@ -56,19 +56,18 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
 else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2); 
-            $test;
+            
+    foreach($myPDO->query($sql_query2) as $row) {
+        $test;
         while($row) {
-            $test .= $row;
-             
+            $test .= $row;  
           }  
-          echo $test;   
-    foreach($myPDO->query($sql_query2) as $test) {
+        echo $test;  
         $d_id1 = $test[1]['d_id']['d_name'];
         $d_id2 = $test[2]['d_id']['d_name'];
         $d_id3 = $test[3]['d_id']['d_name'];
         $d_id4 = $test[4]['d_id']['d_name'];
         $value = $d_id1.$d_id2.$d_id3.$d_id4;
-
         $test .= $value;
     } 
     
