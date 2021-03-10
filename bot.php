@@ -24,11 +24,6 @@ function sendMessage($replyJson, $sendInfo){
    return $result;
 }
 
-if (!$d_id1) {
-    echo "pass";
-} else {
-    echo "not pass";
-}
   
 $val = (explode(",",$text));
 
@@ -61,7 +56,7 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
 else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
-    foreach($myPDO->query($sql) as $row) {
+    foreach($myPDO->query($sql_query2) as $row) {
         $d_id1 = $row[1]['d_id'];
         $d_id2 = $row[2]['d_id'];
         $d_id3 = $row[3]['d_id'];
