@@ -59,7 +59,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
             
     foreach($myPDO->query($sql_query2) as $row) {
         $test;
-        while($row) {
+        if($row) {
             $test .= $row;  
           }  
         echo $test;  
