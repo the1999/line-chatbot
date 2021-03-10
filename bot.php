@@ -24,6 +24,11 @@ function sendMessage($replyJson, $sendInfo){
    return $result;
 }
 
+if (!$d_id1) {
+    echo "pass";
+} else {
+    echo "not pass";
+}
   
 $val = (explode(",",$text));
 
