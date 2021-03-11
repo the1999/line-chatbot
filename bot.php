@@ -74,7 +74,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $d_id2 = $row[2]['d_id']['d_name'];
     $d_id3 = $row[3]['d_id']['d_name'];
     $d_id4 = $row[4]['d_id']['d_name'];
-    $rows = '$d_id1.$d_id2.$d_id3.$d_id4';
+    $rows = $d_id1.$d_id2.$d_id3.$d_id4;
     foreach ($myPDO->query($sql_query2) as $rows) {
         $rows .= $myPDO->query($sql_query2);
     } 
