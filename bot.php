@@ -23,6 +23,12 @@ function sendMessage($replyJson, $sendInfo){
    curl_close($ch);
    return $result;
 }
+if (!$rows) {
+    echo "pass";
+} 
+else {
+    "not pass";
+}
 
   
 $val = (explode(",",$text));
