@@ -23,7 +23,7 @@ function sendMessage($replyJson, $sendInfo){
    curl_close($ch);
    return $result;
 }
-if ($rows) {
+if (isset($rows)) {
     echo "pass";
 } 
 else {
