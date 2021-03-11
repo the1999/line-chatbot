@@ -27,7 +27,7 @@ if (!$row) {
     echo "pass";
 } 
 else {
-    "not pass";
+    echo "not pass";
 }
 
   
