@@ -76,9 +76,9 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
     
-   
+    $test = "";
     foreach ($myPDO->query($sql_query2) as $rows) {
-        $test = "";
+       
         $row1 = $row[1]['d_id']['d_name'];
         $row2 = $row[2]['d_id']['d_name'];
         $row3 = $row[3]['d_id']['d_name'];
