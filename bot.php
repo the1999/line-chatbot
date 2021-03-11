@@ -77,14 +77,13 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $test = "";
     foreach ($myPDO->query($sql_query2) as $rows) {
         $test .= $rows;
+        $replyText["type"] = "text";
+        $replyText["text"] = "$test";
     } 
-    echo $test;
+
    
-    $message = '{
-        "type" : "text",
-        "text" : "$test"
-    }';
-    $replyText = json_decode($message);   
+ 
+ 
 //     foreach ($id as $value) { 
 //     $d_id1 = [1]['d_id']['d_name'];
 //     $d_id2 = [2]['d_id']['d_name'];
