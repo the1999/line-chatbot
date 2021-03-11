@@ -80,8 +80,11 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     } 
     echo $test;
    
-    $replyText["type"] = "text";
-    $replyText["text"] = "$test";
+    $message = '{
+        "type" : "text",
+        "text" : "$test"
+    }';
+    $replyText = json_decode($message);   
 //     foreach ($id as $value) { 
 //     $d_id1 = [1]['d_id']['d_name'];
 //     $d_id2 = [2]['d_id']['d_name'];
