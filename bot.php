@@ -77,14 +77,13 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $myPDO->query($sql_query2);
     
     $test = "";
+    $row1 = $row[1]['d_id']['d_name'];
+    $row2 = $row[2]['d_id']['d_name'];
+    $row3 = $row[3]['d_id']['d_name'];
+    $row4 = $row[4]['d_id']['d_name'];
+    $rows = $row1.$row2.$row3.$row4;
     foreach ($myPDO->query($sql_query2) as $rows) {
-        $row1 = $row[1]['d_id']['d_name'];
-        $row2 = $row[2]['d_id']['d_name'];
-        $row3 = $row[3]['d_id']['d_name'];
-        $row4 = $row[4]['d_id']['d_name'];
-        $rows = $row1.$row2.$row3.$row4;
         $test .= $rows;
-        
     } 
     echo $test;
     $replyText["type"] = "text";
