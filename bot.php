@@ -84,8 +84,9 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $row4 = $row[4]['d_id']['d_name'];
         $rows = $row1.$row2.$row3.$row4;
         $rows .= $rows;
-        echo $test;
+        
     } 
+    echo $test;
     $replyText["type"] = "text";
     $replyText["text"] = "$test";
 
