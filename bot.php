@@ -83,7 +83,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
         $row3 = $row[3]['d_id']['d_name'];
         $row4 = $row[4]['d_id']['d_name'];
         $rows = $row1.$row2.$row3.$row4;
-        $rows .= $rows;
+        $test .= $rows;
         
     } 
     echo $test;
