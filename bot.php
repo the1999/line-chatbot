@@ -78,8 +78,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     foreach ($myPDO->query($sql_query2) as $rows) {
         $rows .= $myPDO->query($sql_query2);
     } 
-    echo $rows;
-
+   
     $replyText["type"] = "text";
     $replyText["text"] = "$rows";
 //     foreach ($id as $value) { 
