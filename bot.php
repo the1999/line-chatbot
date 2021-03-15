@@ -51,11 +51,9 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         //     "text" : "บันทึกเรียบร้อย"
         // }';
         // $replyText = json_decode($message);   
-        foreach ($myPDO->query($sql_query1) as $row) {
-            echo "<br/>";
-            echo $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+ 
         }
-        }
+    
 
 
 else if ($text == "2.ดูข้อมูลการลา") {
@@ -71,6 +69,10 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "$test";
 
  
+}
+foreach ($myPDO->query($sql_query1) as $row) {
+    print "<br/>";
+    print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
 }
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
