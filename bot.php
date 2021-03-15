@@ -66,7 +66,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
         
-        $test .= $row["d_id"].$row["d_name"].'<br/>';
+        $test .= $row["d_id"].$row["d_name"].'\n';
         
     } 
     echo $test;
