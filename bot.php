@@ -25,7 +25,7 @@ function sendMessage($replyJson, $sendInfo){
 }
 
   
-$val = (explode(",","",$text));
+$val = (explode(",",",",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -61,7 +61,6 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
         $test .= $row["d_id"].$row["d_name"];
-        
     } 
     echo $test;
   
