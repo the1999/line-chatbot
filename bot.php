@@ -25,7 +25,7 @@ function sendMessage($replyJson, $sendInfo){
 }
 
   
-$val = (explode(",","$text","$text","$text"));
+$val = (explode(",","'$text','$text','$text'"));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
