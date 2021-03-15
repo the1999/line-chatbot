@@ -90,7 +90,7 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     } 
   
     $replyText["type"] = "text";
-    $replyText["text"] = "$rows";
+    $replyText["text"] = "$test";
 
  
  
