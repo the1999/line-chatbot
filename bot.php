@@ -51,12 +51,12 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         //     "text" : "บันทึกเรียบร้อย"
         // }';
         // $replyText = json_decode($message);   
-        foreach ($myPDO->query($sql_query1) as $row) {
+        foreach ($myPDO->query($sql_query1) as $rows) {
             print "<br/>";
-            print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+            print $rows["user_id"].$rows["d_date"].$rows["d_detail"].'<br/>';
         }
         }
-}
+
 
 else if ($text == "2.ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
