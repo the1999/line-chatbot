@@ -57,10 +57,9 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
 else if ($text == "2.ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
-    
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
-        $test .= $row["d_id"].$row["d_name"];
+        $test .= $row["d_id"].$row["d_name\n"];
         
     } 
     echo $test;
