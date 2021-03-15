@@ -24,8 +24,8 @@ function sendMessage($replyJson, $sendInfo){
    return $result;
 }
 
-  
-$val = (explode(",","'$text','$text','$text'"));
+
+$val = (explode(",",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -44,13 +44,17 @@ else if ($text == "1.บันทึกการลา") {
 } 
 
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val[1])) {
-    $sql_query1 = "INSERT INTO tb_leave (user_id,d_date, d_detail,) VALUES ('".$val[0]."','".$val[1]."','".$val[2]."')";
+    $sql_query1 = "INSERT INTO tb_leave (user_id,d_date, d_detail,) VALUES (2,'2021-03-15','ปวดหัว')";
     $myPDO->query($sql_query1);
-        $message = '{
-            "type" : "text",
-            "text" : "บันทึกเรียบร้อย"
-        }';
-        $replyText = json_decode($message);   
+        // $message = '{
+        //     "type" : "text",
+        //     "text" : "บันทึกเรียบร้อย"
+        // }';
+        // $replyText = json_decode($message);   
+        foreach($myPDO->query($sql_query1) as $row) {
+            print "<br/>";
+            print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+        }
 }
 
 else if ($text == "2.ดูข้อมูลการลา") {
