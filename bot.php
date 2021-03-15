@@ -76,10 +76,10 @@ else if ($text == "ดูรายชื่อพนักงาน") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);
 
-    $row1 = $row[1]['d_id']['d_name'];
-    $row2 = $row[2]['d_id']['d_name'];
-    $row3 = $row[3]['d_id']['d_name'];
-    $row4 = $row[4]['d_id']['d_name'];
+    $row1 = [1]['d_id']['d_name'];
+    $row2 = [2]['d_id']['d_name'];
+    $row3 = [3]['d_id']['d_name'];
+    $row4 = [4]['d_id']['d_name'];
     $rows = $row1.$row2.$row3.$row4;
     
            
