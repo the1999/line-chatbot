@@ -51,11 +51,11 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         //     "text" : "บันทึกเรียบร้อย"
         // }';
         // $replyText = json_decode($message);   
-        $test1 = "";
+        
         foreach ($myPDO->query($sql_query1) as $row) {
-            $test1 .= $row["user_id"].$row["d_date"].$row["d_detail"];
+            print $row["user_id"].$row["d_date"].$row["d_detail"];
         } 
-        echo $test1;
+        
  
         }
 
