@@ -38,7 +38,7 @@ if ($text == "ดูรายการหน่อย"){
 else if ($text == "1.บันทึกการลา") {
     $message = '{
         "type" : "text",
-        "text" : "คุณต้องการลาวันที่เท่าไหร่  \n ตัวอย่างเช่น 2021-01-01,ไปหาหมอ"
+        "text" : "คุณต้องการลาวันที่เท่าไหร่  \n ตัวอย่างเช่น ใส่IDของคุณ,2021-01-01,ไปหาหมอ"
     }';
     $replyText = json_decode($message);
 } 
@@ -58,7 +58,8 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $myPDO->query($sql_query2);    
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
-        $test .= $row["d_id"].$row["d_name"].'\n';
+        $textline .='\n';
+        $test .= $row["d_id"].$row["d_name"].$textline;
     } 
     echo $test;
   
