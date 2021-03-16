@@ -71,7 +71,7 @@ else if ($text == "1") {
     $myPDO->query($sql_query3);    
     $test1 = "";
     foreach ($myPDO->query($sql_query3) as $row) {
-        $test1 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+        $test1 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"].'<br/>';
     } 
     echo $test1;
     $replyText["type"] = "text";
@@ -82,7 +82,7 @@ else if ($text == "2") {
     $myPDO->query($sql_query4);    
     $test2 = "";
     foreach ($myPDO->query($sql_query4) as $row) {
-        $test2 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+        $test2 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"].'<br/>';
     } 
     echo $test2;
     $replyText["type"] = "text";
@@ -93,7 +93,7 @@ else if ($text == "3") {
     $myPDO->query($sql_query5);    
     $test3 = "";
     foreach ($myPDO->query($sql_query5) as $row) {
-        $test3 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+        $test3 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"].'<br/>';
     } 
     echo $test3;
     $replyText["type"] = "text";
@@ -104,7 +104,7 @@ else if ($text == "4") {
     $myPDO->query($sql_query6);    
     $test4 = "";
     foreach ($myPDO->query($sql_query6) as $row) {
-        $test4 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+        $test4 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"].'<br/>';
     } 
     echo $test4;
     $replyText["type"] = "text";
