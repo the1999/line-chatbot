@@ -118,7 +118,7 @@ else if ($text == "3.ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
-else if ($delete[0] == "$delete[0],$delete[1]") {
+else if ($text == "$delete[0],$delete[1]") {
     $message = '{
         "type" : "text",
         "text" : "ยกเลิกการลาเรียบร้อย"
