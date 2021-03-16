@@ -27,7 +27,8 @@ function sendMessage($replyJson, $sendInfo){
 
 $val = (explode(",",$text));
 $delete = (explode(",",$text));
-$textName = (explode(":",$text));
+$id = $_GET['user_id'];
+$textName = (explode(":",$id));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
