@@ -75,7 +75,7 @@ else if ($text == "1.เอิร์ท") {
     } 
     echo $test1;
     $replyText["type"] = "text";
-    $replyText["text"] = "ID:1 $test1";
+    $replyText["text"] = "$test1";
 }
 else if ($text == "2.มอส") {
     $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=2";
