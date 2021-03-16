@@ -59,8 +59,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
         
-        $test .= $row["d_id"].$row["d_name"];
-        echo '\n';
+        $test .= $row["d_id"].$row["d_name"].'<br/>';
     } 
     echo $test;
   
