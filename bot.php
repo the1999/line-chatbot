@@ -70,7 +70,7 @@ else if ($text == "1") {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
     $myPDO->query($sql_query3);    
     $test1 = "";
-    foreach ($myPDO->query($sql_query2) as $row) {
+    foreach ($myPDO->query($sql_query3) as $row) {
         $test1 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     } 
     echo $test1;
