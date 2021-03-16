@@ -118,8 +118,8 @@ else if ($text == "3.ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
-else if ($text == "$delete[0],$delete[1]") {
-    $sql_query7 = "DELETE FROM tb_leave WHERE d_id AND user_id";
+else if ("$delete[0]") {
+    $sql_query7 = "DELETE FROM tb_leave WHERE d_id = $delete[0] AND user_id = $delete[1]";
     $myPDO->query($sql_query7);  
     $message = '{
         "type" : "text",
