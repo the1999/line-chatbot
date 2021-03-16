@@ -44,7 +44,7 @@ else if ($text == "1.บันทึกการลา") {
 } 
 
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val[1])) {
-     $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$val[0]."','".$val[1]."','".$val[2]."')";
+    $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$val[0]."','".$val[1]."','".$val[2]."')";
     $myPDO->query($sql_query1);
     $message = '{
         "type" : "text",
@@ -52,22 +52,19 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
     }';
     $replyText = json_decode($message);
     }
-        
-        
 
 else if ($text == "2.ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
-        $test .= $row["d_id"].$row["d_name"];
+        $test .= '$row["d_id"].$row["d_name"]\n';
     } 
     echo $test;
   
     $replyText["type"] = "text";
     $replyText["text"] = "$test";
 
- 
 }
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
