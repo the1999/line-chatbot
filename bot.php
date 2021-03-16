@@ -66,7 +66,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
-else if ($text == "1") {
+else if ($text == "1.เอิร์ท") {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
     $myPDO->query($sql_query3);    
     $test1 = "";
@@ -77,7 +77,7 @@ else if ($text == "1") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test1";
 }
-else if ($text == "2") {
+else if ($text == "2.มอส") {
     $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=2";
     $myPDO->query($sql_query4);    
     $test2 = "";
@@ -88,7 +88,7 @@ else if ($text == "2") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test2";
 }
-else if ($text == "3") {
+else if ($text == "3.ไอซ์") {
     $sql_query5 = "SELECT * FROM tb_leave WHERE user_id=3";
     $myPDO->query($sql_query5);    
     $test3 = "";
@@ -99,7 +99,7 @@ else if ($text == "3") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test3";
 }
-else if ($text == "4") {
+else if ($text == "4.ต้น") {
     $sql_query6 = "SELECT * FROM tb_leave WHERE user_id=4";
     $myPDO->query($sql_query6);    
     $test4 = "";
