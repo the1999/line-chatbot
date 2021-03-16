@@ -71,7 +71,7 @@ else if ($text == "1.เอิร์ท") {
     $myPDO->query($sql_query3);    
     $test1 = "";
     foreach ($myPDO->query($sql_query3) as $row) {
-        $test1 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
+        $test1 .= $row["d_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
     } 
     echo $test1;
     $replyText["type"] = "text";
@@ -82,7 +82,7 @@ else if ($text == "2.มอส") {
     $myPDO->query($sql_query4);    
     $test2 = "";
     foreach ($myPDO->query($sql_query4) as $row) {
-        $test2 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
+        $test2 .= '['.$row["d_id"].']'.'.'.$row["d_date"].','.$row["d_detail"]."\n";
     } 
     echo $test2;
     $replyText["type"] = "text";
@@ -93,7 +93,7 @@ else if ($text == "3.ไอซ์") {
     $myPDO->query($sql_query5);    
     $test3 = "";
     foreach ($myPDO->query($sql_query5) as $row) {
-        $test3 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
+        $test3 .= $row["d_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
     } 
     echo $test3;
     $replyText["type"] = "text";
@@ -104,11 +104,14 @@ else if ($text == "4.ต้น") {
     $myPDO->query($sql_query6);    
     $test4 = "";
     foreach ($myPDO->query($sql_query6) as $row) {
-        $test4 .= $row["user_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
+        $test4 .= $row["d_id"].'.'.$row["d_date"].','.$row["d_detail"]."\n";
     } 
     echo $test4;
     $replyText["type"] = "text";
     $replyText["text"] = "$test4";
+}
+else if ($texe == "3.ยกเลิกการลา") {
+
 }
 
 
