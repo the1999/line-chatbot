@@ -63,7 +63,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     echo $test;
   
     $replyText["type"] = "text";
-    $replyText["text"] = "รายชื่อพนักงาน $test";
+    $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
 else if ($text == "1") {
