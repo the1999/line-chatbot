@@ -27,8 +27,8 @@ function sendMessage($replyJson, $sendInfo){
 
 $val = (explode(",",$text));
 $delete = (explode(",",$text));
-$id = $_POST['user_id'];
-$textName = (explode(":",$id));
+$textName = (explode(":",$text));
+
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -69,7 +69,8 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
-else if ($text == "ดูข้อมูลการลา: $textName") {
+
+else if ($text == "ดูข้อมูลการลา $textName") {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id";
     $myPDO->query($sql_query3);    
     $test1 = "";
