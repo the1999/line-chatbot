@@ -9,7 +9,7 @@ try {
     //     print "<br/>";
     //     print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     // }
-    $sql1 = "SELECT user_id,COUNT * AS '".จำนวนที่ลาทั้งหมด."' FROM tb_leave GROUP BY user_id";
+    $sql1 = "SELECT COUNT(*) FROM tb_leave GROUP BY user_id";
     $myPDO->query($sql1);
     foreach($myPDO->query($sql) as $row) {
         print "<br/>";
