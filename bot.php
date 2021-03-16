@@ -63,7 +63,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     echo $test;
   
     $replyText["type"] = "text";
-    $replyText["text"] = "$test";
+    $replyText["text"] = "รายชื่อพนักงาน $test";
 
 }
 else if ($text == "1") {
@@ -110,9 +110,6 @@ else if ($text == "4") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test4";
 }
-
-
-
 
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
