@@ -10,11 +10,11 @@ try {
     //     print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     // }
 
-    $sql = "SELECT COUNT(*) FROM tb_leave";
+    $sql = "SELECT COUNT(*) FROM tb_leave WHERE user_id";
     $myPDO->query($sql);
      foreach($myPDO->query($sql) as $row) {
         print "<br/>";
-        print $row["user_id"].'<br/>';
+        print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     }
 
 
