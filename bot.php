@@ -58,7 +58,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $myPDO->query($sql_query2);    
     $test = "";
     foreach ($myPDO->query($sql_query2) as $row) {
-        $test .= $row["d_id"].$row["d_name"].'<br>';
+        $test .= $row["d_id"].$row["d_name"].'<br/>';
     } 
     echo $test;
   
@@ -66,6 +66,9 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "$test";
 
 }
+// else if ($text == "1") {
+//     $sql_query3 = "SELECT * FROM "
+// }
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
