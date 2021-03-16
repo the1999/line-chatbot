@@ -10,8 +10,13 @@ try {
     //     print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     // }
 
-    // $sql = "INSERT INTO tb_leave(d_date,d_detail) SELECT d_id FROM tb_user WHERE user_id";
-    
+    $sql = "SELECT COUNT(*) FROM tb_leave(user_id)";
+    $myPDO->query($sql);
+     foreach($myPDO->query($sql) as $row) {
+        print "<br/>";
+        print $row["user_id"].'<br/>';
+    }
+
 
 } catch(PDOException $e) {
     echo $e->getMessage();
