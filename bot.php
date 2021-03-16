@@ -66,9 +66,11 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "$test";
 
 }
-// else if ($text == "1") {
-//     $sql_query3 = "SELECT * FROM "
-// }
+else if ($text == "1") {
+    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
+    $replyText["type"] = "text";
+    $replyText["text"] = "$sql_query3";
+}
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
