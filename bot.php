@@ -27,6 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 
 $val = (explode(",",$text));
 $delete = (explode(",",$text));
+$textName = (explode("ดูข้อมูลการลา",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -67,8 +68,8 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
-else if ($text == "1.เอิร์ท") {
-    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
+else if ($text == "$textName") {
+    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1 AND user_id=2 AND user_id=3 AND user_id=4";
     $myPDO->query($sql_query3);    
     $test1 = "";
     foreach ($myPDO->query($sql_query3) as $row) {
@@ -78,46 +79,46 @@ else if ($text == "1.เอิร์ท") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test1";
 }
-else if ($text == "2.มอส") {
-    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=2";
-    $myPDO->query($sql_query4);    
-    $test2 = "";
-    foreach ($myPDO->query($sql_query4) as $row) {
-        $test2 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
-    } 
-    echo $test2;
-    $replyText["type"] = "text";
-    $replyText["text"] = "$test2";
-}
-else if ($text == "3.ไอซ์") {
-    $sql_query5 = "SELECT * FROM tb_leave WHERE user_id=3";
-    $myPDO->query($sql_query5);    
-    $test3 = "";
-    foreach ($myPDO->query($sql_query5) as $row) {
-        $test3 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
-    } 
-    echo $test3;
-    $replyText["type"] = "text";
-    $replyText["text"] = "$test3";
-}
-else if ($text == "4.ต้น") {
-    $sql_query6 = "SELECT * FROM tb_leave WHERE user_id=4";
-    $myPDO->query($sql_query6);    
-    $test4 = "";
-    foreach ($myPDO->query($sql_query6) as $row) {
-        $test4 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
-    } 
-    echo $test4;
-    $replyText["type"] = "text";
-    $replyText["text"] = "$test4";
-}
-else if ($text == "3.ยกเลิกการลา") {
-    $message = '{
-        "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
-    }';
-    $replyText = json_decode($message);
-}
+// else if ($text == "2.มอส") {
+//     $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=2";
+//     $myPDO->query($sql_query4);    
+//     $test2 = "";
+//     foreach ($myPDO->query($sql_query4) as $row) {
+//         $test2 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+//     } 
+//     echo $test2;
+//     $replyText["type"] = "text";
+//     $replyText["text"] = "$test2";
+// }
+// else if ($text == "3.ไอซ์") {
+//     $sql_query5 = "SELECT * FROM tb_leave WHERE user_id=3";
+//     $myPDO->query($sql_query5);    
+//     $test3 = "";
+//     foreach ($myPDO->query($sql_query5) as $row) {
+//         $test3 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+//     } 
+//     echo $test3;
+//     $replyText["type"] = "text";
+//     $replyText["text"] = "$test3";
+// }
+// else if ($text == "4.ต้น") {
+//     $sql_query6 = "SELECT * FROM tb_leave WHERE user_id=4";
+//     $myPDO->query($sql_query6);    
+//     $test4 = "";
+//     foreach ($myPDO->query($sql_query6) as $row) {
+//         $test4 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+//     } 
+//     echo $test4;
+//     $replyText["type"] = "text";
+//     $replyText["text"] = "$test4";
+// }
+// else if ($text == "3.ยกเลิกการลา") {
+//     $message = '{
+//         "type" : "text",
+//         "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
+//     }';
+//     $replyText = json_decode($message);
+// }
 else if ("$delete[0]") {
     $sql_query7 = "DELETE FROM tb_leave WHERE d_id = $delete[0] AND user_id = $delete[1]";
     $myPDO->query($sql_query7);  
