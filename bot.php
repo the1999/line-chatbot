@@ -26,6 +26,7 @@ function sendMessage($replyJson, $sendInfo){
 
 
 $val = (explode(",",$text));
+$delete = (explode(",",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -117,9 +118,9 @@ else if ($text == "3.ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
-else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val[2])) {
-    $sql_query7 = "DELETE FROM tb_leave WHERE d_id = '".$val[0]."','".$val[1]."','".$val[2]."','".$val[3]."'";
-    $myPDO->query($sql_query7);
+else if ($text == "1,1,2021-03-15,ไปหาหมอ") {
+    
+    
     $message = '{
         "type" : "text",
         "text" : "ยกเลิกการลาเรียบร้อย"
