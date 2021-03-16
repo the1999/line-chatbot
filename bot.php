@@ -119,6 +119,7 @@ else if ($text == "3.ยกเลิกการลา") {
     $replyText = json_decode($message);
 }
 else if ($text == "$delete[0],$delete[1]") {
+    $sql_query7 = "DELETE FROM tb_leave WHERE d_id AND user_id";
     $message = '{
         "type" : "text",
         "text" : "ยกเลิกการลาเรียบร้อย"
