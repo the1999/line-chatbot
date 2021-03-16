@@ -30,7 +30,7 @@ $val = (explode(",",$text));
 if ($text == "ดูรายการหน่อย"){
     $message = '{
            "type" : "text",
-           "text" : "รายการเมนู(พิมพ์ตัวเลขเพื่อดำเนินการ) \n1.บันทึกการลา \n2.ดูข้อมูลการลาทั้งหมด \n3.ยกเลิกการลา"
+           "text" : "รายการเมนู(พิมพ์ตัวเลขเพื่อดำเนินการ) \n1.บันทึกการลา \n2.ดูข้อมูลการลา \n3.ยกเลิกการลา"
     }';
     $replyText = json_decode($message);
 }
@@ -74,9 +74,10 @@ else if ($text == "1") {
         $test1 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     } 
     echo $test1;
-}
     $replyText["type"] = "text";
     $replyText["text"] = "$test1";
+}
+
 
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
