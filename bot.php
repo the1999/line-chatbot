@@ -77,6 +77,41 @@ else if ($text == "1") {
     $replyText["type"] = "text";
     $replyText["text"] = "$test1";
 }
+else if ($text == "2") {
+    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=2";
+    $myPDO->query($sql_query4);    
+    $test2 = "";
+    foreach ($myPDO->query($sql_query4) as $row) {
+        $test2 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+    } 
+    echo $test2;
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test2";
+}
+else if ($text == "3") {
+    $sql_query5 = "SELECT * FROM tb_leave WHERE user_id=3";
+    $myPDO->query($sql_query5);    
+    $test3 = "";
+    foreach ($myPDO->query($sql_query5) as $row) {
+        $test3 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+    } 
+    echo $test3;
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test3";
+}
+else if ($text == "4") {
+    $sql_query6 = "SELECT * FROM tb_leave WHERE user_id=4";
+    $myPDO->query($sql_query6);    
+    $test4 = "";
+    foreach ($myPDO->query($sql_query6) as $row) {
+        $test4 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+    } 
+    echo $test4;
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test4";
+}
+
+
 
 
 
