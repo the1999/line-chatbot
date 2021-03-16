@@ -9,7 +9,7 @@ try {
     //     print "<br/>";
     //     print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     // }
-    $sql1 = "SELECT user_id,COUNT(*) FROM tb_leave ";
+    $sql1 = "SELECT COUNT(*) FROM tb_leave ";
     $myPDO->query($sql1);
     foreach($myPDO->query($sql1) as $row) {
         print "<br/>";
