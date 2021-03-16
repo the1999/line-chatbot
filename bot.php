@@ -69,9 +69,15 @@ else if ($text == "2.ดูข้อมูลการลา") {
 else if ($text == "1") {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
     $myPDO->query($sql_query3);    
-    $replyText["type"] = "text";
-    $replyText["text"] = "$myPDO";
+    $test1 = "";
+    foreach ($myPDO->query($sql_query2) as $row) {
+        $test1 .= $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
+    } 
+    echo $test1;
 }
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test1";
+
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
