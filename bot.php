@@ -111,7 +111,11 @@ else if ($text == "4.ต้น") {
     $replyText["text"] = "$test4";
 }
 else if ($texe == "3.ยกเลิกการลา") {
-
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่IDของคุณ,ใส่IDวันที่ต้องการลา,2021-01-01,ไปหาหมอ"
+    }';
+    $replyText = json_decode($message);
 }
 
 
