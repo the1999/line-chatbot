@@ -68,8 +68,9 @@ else if ($text == "2.ดูข้อมูลการลา") {
 }
 else if ($text == "1") {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1";
+    $myPDO->query($sql_query3);    
     $replyText["type"] = "text";
-    $replyText["text"] = "$sql_query3";
+    $replyText["text"] = "$myPDO";
 }
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
