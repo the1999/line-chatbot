@@ -9,13 +9,13 @@ try {
     //     print "<br/>";
     //     print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     // }
-
-    $sql = "SELECT COUNT(*) FROM tb_leave WHERE user_id=1";
-    $myPDO->query($sql);
-     foreach($myPDO->query($sql) as $row) {
+    $sql1 = "SELECT user_id,COUNT(*) AS '".จำนวนที่ลาทั้งหมด."' FROM tb_leave GROUP BY user_id";
+    $myPDO->query($sql1);
+    foreach($myPDO->query($sql) as $row) {
         print "<br/>";
         print $row["user_id"].$row["d_date"].$row["d_detail"].'<br/>';
     }
+
 
 
 } catch(PDOException $e) {
