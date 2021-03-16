@@ -114,12 +114,13 @@ else if ($text == "4.ต้น") {
 else if ($text == "3.ยกเลิกการลา") {
     $message = '{
         "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่IDของคุณ,ใส่IDวันที่ต้องการลา"
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
     }';
     $replyText = json_decode($message);
 }
 else if ($text == "$delete[0],$delete[1]") {
     $sql_query7 = "DELETE FROM tb_leave WHERE d_id AND user_id";
+    $myPDO->query($sql_query7);  
     $message = '{
         "type" : "text",
         "text" : "ยกเลิกการลาเรียบร้อย"
