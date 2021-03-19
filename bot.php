@@ -25,12 +25,9 @@ function sendMessage($replyJson, $sendInfo){
 }
 
 
-
-if($_GET) {
-    $t = $_GET['user_id'];
-
-    $massageArray = (explode(",",$text));
-    $delete = (explode(",",$text));
+$massageArray = (explode(",",$text));
+$delete = (explode(",",$text));
+$detail = (explode(".",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -72,7 +69,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
 
 }
 
-else if (isset($t)) {
+else if (isset($detail)) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1 user_id=2 user_id=3 user_id=4";
     $myPDO->query($sql_query3);  
     $test = "";
@@ -102,7 +99,7 @@ else if (isset($delete[0])) {
     $replyText = json_decode($message);
 }
 
-}
+
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
 
