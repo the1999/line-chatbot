@@ -25,7 +25,7 @@ function sendMessage($replyJson, $sendInfo){
 }
 
 
-$val = (explode(",",$text));
+$massageArray = (explode(",",$text));
 $delete = (explode(",",$text));
 
 
@@ -45,14 +45,14 @@ else if ($text == "1.บันทึกการลา") {
     $replyText = json_decode($message);
 } 
 
-else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$val[1])) {
-    $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$val[0]."','".$val[1]."','".$val[2]."')";
+else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$massageArray[1])) {
+    $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$user_id=$massageArray[0]."','".$d_date=$massageArray[1]."','".$d_detail=$massageArray[2]."')";
     $myPDO->query($sql_query1);
-    $message = '{
-        "type" : "text",
-        "text" : "บันทึกเรียบร้อย"
-    }';
-    $replyText = json_decode($message);
+        $message = '{
+            "type" : "text",
+            "text" : "บันทึกเรียบร้อย"
+        }';
+        $replyText = json_decode($message);
     }
 
 else if ($text == "2.ดูข้อมูลการลา") {
