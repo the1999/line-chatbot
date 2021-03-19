@@ -72,16 +72,16 @@ else if ($text == "2.ดูข้อมูลการลา") {
 else if (isset($detail)) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=$detail";
     $myPDO->query($sql_query3); 
-    $test = "";
+    $test1 = "";
     foreach ($myPDO->query($sql_query3) as $row) {
-        $test .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+        $test1 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
     } 
-    echo $test;
+    echo $test1;
+
     $replyText["type"] = "text";
-    $replyText["text"] = "$test";
+    $replyText["text"] = "$test1";
 
 } 
-
 
 else if ($text == "3.ยกเลิกการลา") {
     $message = '{
