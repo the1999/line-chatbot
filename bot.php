@@ -70,6 +70,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
 }
 
 else if (isset($detail)) {
+    if($_GET){
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id='".$_GET["user_id"]."'";
     $myPDO->query($sql_query3);  
     $test = "";
@@ -79,6 +80,7 @@ else if (isset($detail)) {
     echo $test;
     $replyText["type"] = "text";
     $replyText["text"] = "$test";
+}
 } 
 
 
