@@ -27,8 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 
 $massageArray = (explode(",",$text));
 $delete = (explode(",",$text));
-$sql_query3 = "SELECT * FROM tb_leave WHERE user_id";
-$myPDO->query($sql_query3);  
+
 
 
 if ($text == "ดูรายการหน่อย"){
@@ -72,6 +71,8 @@ else if ($text == "2.ดูข้อมูลการลา") {
 }
 
 else if ($text == "$myPDO") {
+    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=1 user_id=2 user_id=3 user_id=4";
+    $myPDO->query($sql_query3);  
     $test = "";
     foreach ($myPDO->query($sql_query3) as $row) {
         $test .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
