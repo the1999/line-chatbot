@@ -47,22 +47,6 @@ else if ($text == "บันทึกการลา") {
     }';
     $replyText = json_decode($message);
 } 
-elseif ($text == "ยกเลิกการลา") {
-    $message = '{
-        "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
-    }';
-    $replyText = json_decode($message);
-}
-else if ($text == isset($delete[0])) {
-    $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
-    $myPDO->query($sql_query7);  
-    $message = '{
-        "type" : "text",
-        "text" : "ยกเลิกการลาเรียบร้อย"
-    }';
-    $replyText = json_decode($message);
-}
 
 
 ///บันทึกการลา
@@ -89,7 +73,7 @@ else if ($text == "ดูข้อมูลการลา") {
     $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
-///ดูข้อมูลการลาของพนักงาน
+
 else if (!empty($detail[0])) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
     $myPDO->query($sql_query3); 
@@ -103,6 +87,22 @@ else if (!empty($detail[0])) {
     $replyText["text"] = "$test1";
 
 } 
+elseif ($text == "ยกเลิกการลา") {
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
+    }';
+    $replyText = json_decode($message);
+}
+else if ($text == isset($delete[0])) {
+    $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
+    $myPDO->query($sql_query7);  
+    $message = '{
+        "type" : "text",
+        "text" : "ยกเลิกการลาเรียบร้อย"
+    }';
+    $replyText = json_decode($message);
+}
 
 
 
