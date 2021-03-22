@@ -70,7 +70,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
 
 }
 
-else if ($text == isset($detail)) {
+else if (empty($detail)) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
     $myPDO->query($sql_query3); 
     $test1 = "";
