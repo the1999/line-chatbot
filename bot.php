@@ -73,19 +73,19 @@ else if ($text == "2.ดูข้อมูลการลา") {
 
 }
 ///ดูข้อมูลการลาของพนักงาน
-// else if (!empty($detail)) {
-//     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
-//     $myPDO->query($sql_query3); 
-//     $test1 = "";
-//     foreach ($myPDO->query($sql_query3) as $row) {
-//         $test1 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
-//     } 
-//     echo $test1;
+else if (!empty($detail[0])) {
+    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
+    $myPDO->query($sql_query3); 
+    $test1 = "";
+    foreach ($myPDO->query($sql_query3) as $row) {
+        $test1 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+    } 
+    echo $test1;
 
-//     $replyText["type"] = "text";
-//     $replyText["text"] = "$test1";
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test1";
 
-// } 
+} 
 ///เมนู3.ยกเลิกการลา
 else if ($text == "3.ยกเลิกการลา") {
     $message = '{
