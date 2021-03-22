@@ -73,10 +73,10 @@ else if ($text == "2.ดูข้อมูลการลา") {
 else if ($text == isset($detail)) {
     $sql_query3 = "SELECT * 
     CASE user_id
-        WHERE user_id=1
-        WHERE user_id=2
-        WHERE user_id=3
-        WHERE user_id=4
+        WHEN '1.เอิร์ท' THEN 'user_id=1'
+        WHEN '2.มอส' THEN 'user_id=2'
+        WHEN '3.ไอซ์' THEN 'user_id=3'
+        WHEN '4.ต้น' THEN 'user_id=4'
         FROM tb_leave";
     $myPDO->query($sql_query3); 
     $test1 = "";
