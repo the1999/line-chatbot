@@ -24,12 +24,14 @@ function sendMessage($replyJson, $sendInfo){
    return $result;
 }
 
-
+///ตัวแปรของinsertการลา
 $massageArray = (explode(",",$text));
+///ตัวแปรของยกเลิกการลา
 $delete = (explode(",",$text));
+///ตัวแปรของuser
 $detail = (explode(".",$text));
 
-
+///รายการดูรายการหน่อย
 if ($text == "ดูรายการหน่อย"){
     $message = '{
            "type" : "text",
@@ -37,7 +39,7 @@ if ($text == "ดูรายการหน่อย"){
     }';
     $replyText = json_decode($message);
 }
-
+///เมนูที่1.บันทึกการลา
 else if ($text == "1.บันทึกการลา") {
     $message = '{
         "type" : "text",
@@ -46,8 +48,9 @@ else if ($text == "1.บันทึกการลา") {
     $replyText = json_decode($message);
 } 
 
+///บันทึกการลา
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$massageArray[1])) {
-    $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$massageArray[0]."','".$massageArray[1]."','".$massageArray[2]."')";
+    $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$user_id=$massageArray[0]."','".$d_date=$massageArray[1]."','".$d_detail=$massageArray[2]."')";
     $myPDO->query($sql_query1);
         $message = '{
             "type" : "text",
@@ -55,7 +58,7 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         }';
         $replyText = json_decode($message);
     }
-
+///ดูuser_idของพนักงาน
 else if ($text == "2.ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
@@ -69,7 +72,7 @@ else if ($text == "2.ดูข้อมูลการลา") {
     $replyText["text"] = "รายชื่อพนักงาน\n $test";
 
 }
-
+///ดูข้อมูลการลาของพนักงาน
 else if (!empty($detail)) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
     $myPDO->query($sql_query3); 
@@ -83,7 +86,7 @@ else if (!empty($detail)) {
     $replyText["text"] = "$test1";
 
 } 
-
+///เมนู3.ยกเลิกการลา
 else if ($text == "3.ยกเลิกการลา") {
     $message = '{
         "type" : "text",
@@ -91,6 +94,7 @@ else if ($text == "3.ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
+///ยกเลิกการลา
 else if ($text == isset($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
