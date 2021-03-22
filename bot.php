@@ -86,7 +86,7 @@ else if (!empty($detail[0])) {
     $replyText["text"] = "$test1";
 
 } 
-///เมนู3.ยกเลิกการลา
+///เมนูยกเลิกการลา
 else if ($text == "ยกเลิกการลา") {
     $message = '{
         "type" : "text",
