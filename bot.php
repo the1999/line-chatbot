@@ -86,6 +86,14 @@ else if (!empty($detail[0])) {
     $replyText["text"] = "$test1";
 
 } 
+///เมนูยกเลิกการลา
+else if ($text == "ยกเลิกการลา") {
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
+    }';
+    $replyText = json_decode($message);
+}
 ///ยกเลิกการลา
 else if (!empty($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
@@ -93,13 +101,6 @@ else if (!empty($delete[0])) {
     $message = '{
         "type" : "text",
         "text" : "ยกเลิกการลาเรียบร้อย"
-    }';
-    $replyText = json_decode($message);
-}
-else if ($text == "ยกเลิกการลา") {
-    $message = '{
-        "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันที่เท่าไหร่ \n ตัวอย่างเช่น พิมพ์userIDของคุณ,idรายละเอียดวันที่ลา"
     }';
     $replyText = json_decode($message);
 }
