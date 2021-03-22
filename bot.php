@@ -40,7 +40,7 @@ if ($text == "ดูรายการหน่อย"){
     $replyText = json_decode($message);
 }
 ///เมนูที่1.บันทึกการลา
-else if ($text == "1.บันทึกการลา") {
+else if ($text == "บันทึกการลา") {
     $message = '{
         "type" : "text",
         "text" : "คุณต้องการลาวันที่เท่าไหร่  \n ตัวอย่างเช่น ใส่IDของคุณ,2021-01-01,ไปหาหมอ"
@@ -59,7 +59,7 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         $replyText = json_decode($message);
     }
 ///ดูuser_idของพนักงาน
-else if ($text == "2.ดูข้อมูลการลา") {
+else if ($text == "ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
     $test = "";
@@ -87,7 +87,7 @@ else if (!empty($detail[0])) {
 
 } 
 ///เมนู3.ยกเลิกการลา
-else if ($text == "3.ยกเลิกการลา") {
+else if ($text == "ยกเลิกการลา") {
     $message = '{
         "type" : "text",
         "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา"
