@@ -95,7 +95,7 @@ else if (!empty($detail[0])) {
 } 
 
 ///ยกเลิกการลา
-else if ($text == $delete[0]) {
+if (!isset($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
     $message = '{
