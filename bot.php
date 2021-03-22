@@ -70,19 +70,19 @@ else if ($text == "2.ดูข้อมูลการลา") {
 
 }
 
-// else if (isset($detail)) {
-//     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id";
-//     $myPDO->query($sql_query3); 
-//     $test1 = "";
-//     foreach ($myPDO->query($sql_query3) as $row) {
-//         $test1 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
-//     } 
-//     echo $test1;
+else if (!$detail) {
+    $sql_query3 = "SELECT * FROM tb_leave WHERE user_id";
+    $myPDO->query($sql_query3); 
+    $test1 = "";
+    foreach ($myPDO->query($sql_query3) as $row) {
+        $test1 .= '['.$row["d_id"].']'.$row["d_date"].','.$row["d_detail"]."\n";
+    } 
+    echo $test1;
 
-//     $replyText["type"] = "text";
-//     $replyText["text"] = "$test1";
+    $replyText["type"] = "text";
+    $replyText["text"] = "$test1";
 
-// } 
+} 
 
 else if ($text == "3.ยกเลิกการลา") {
     $message = '{
@@ -91,15 +91,15 @@ else if ($text == "3.ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
-// else if (isset($delete[0])) {
-//     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
-//     $myPDO->query($sql_query7);  
-//     $message = '{
-//         "type" : "text",
-//         "text" : "ยกเลิกการลาเรียบร้อย"
-//     }';
-//     $replyText = json_decode($message);
-// }
+else if (!$delete[0]) {
+    $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
+    $myPDO->query($sql_query7);  
+    $message = '{
+        "type" : "text",
+        "text" : "ยกเลิกการลาเรียบร้อย"
+    }';
+    $replyText = json_decode($message);
+}
 
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
