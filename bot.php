@@ -27,7 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 ///ตัวแปรของinsertการลา
 $massageArray = (explode(",",$text));
 ///ตัวแปรของยกเลิกการลา
-$delete = (explode("และ",$text));
+$delete = (explode("กับ",$text));
 ///ตัวแปรของuser
 $detail = (explode(".",$text));
 
@@ -91,7 +91,7 @@ else if (!empty($detail[0])) {
 elseif ($text == "ยกเลิกการลา") {
     $message = '{
         "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณ,ไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
     }';
     $replyText = json_decode($message);
 }
