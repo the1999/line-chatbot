@@ -27,7 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 ///ตัวแปรของinsertการลา
 $massageArray = (explode(",",$text));
 ///ตัวแปรของยกเลิกการลา
-$delete = (explode(",",$text));
+$delete = (explode("และ",$text));
 ///ตัวแปรของuser
 $detail = (explode(".",$text));
 
