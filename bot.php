@@ -23,10 +23,10 @@ function sendMessage($replyJson, $sendInfo){
    curl_close($ch);
    return $result;
 }
-$d_id = "";
+
 $massageArray = (explode(",",$text));
 $detail = (explode(".",$text));
-$delete = (explode(",",$d_id));
+$delete = (explode("-",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
