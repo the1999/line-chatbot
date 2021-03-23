@@ -24,14 +24,14 @@ function sendMessage($replyJson, $sendInfo){
    return $result;
 }
 
-///ตัวแปรของinsertการลา
+
 $massageArray = (explode(",",$text));
-///ตัวแปรของยกเลิกการลา
+
 $delete = (explode("กับ",$text));
-///ตัวแปรของuser
+
 $detail = (explode(".",$text));
 
-///รายการดูรายการหน่อย
+
 if ($text == "ดูรายการหน่อย"){
     $message = '{
            "type" : "text",
@@ -39,7 +39,7 @@ if ($text == "ดูรายการหน่อย"){
     }';
     $replyText = json_decode($message);
 }
-///เมนูที่1.บันทึกการลา
+
 else if ($text == "บันทึกการลา") {
     $message = '{
         "type" : "text",
@@ -47,7 +47,14 @@ else if ($text == "บันทึกการลา") {
     }';
     $replyText = json_decode($message);
 }
-///บันทึกการลา
+elseif ($text == "ยกเลิกการลา") {
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
+    }';
+    $replyText = json_decode($message);
+}
+
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$massageArray[1])) {
     $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$user_id=$massageArray[0]."','".$d_date=$massageArray[1]."','".$d_detail=$massageArray[2]."')";
     $myPDO->query($sql_query1);
@@ -59,8 +66,6 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
     }
 
 
-
-///ดูuser_idของพนักงาน
 else if ($text == "ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
@@ -88,13 +93,6 @@ else if (!empty($detail[0])) {
     $replyText["text"] = "$test1";
 
 } 
-elseif ($text == "ยกเลิกการลา") {
-    $message = '{
-        "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
-    }';
-    $replyText = json_decode($message);
-}
 
 
 else if (!empty($delete[0])) {
