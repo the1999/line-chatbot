@@ -89,13 +89,17 @@ else if (!empty($detail[0])) {
 
 } 
 elseif ($text == "ยกเลิกการลา") {
+    $text1 = "";    
+    if($text) {
     $text1 = "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา";
+    }
     echo $text1;
     
     $replyText["type"] = "text";
     $replyText["text"] = "$text1";
-
 }
+
+
 else if (!empty($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
