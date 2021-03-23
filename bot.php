@@ -26,6 +26,8 @@ function sendMessage($replyJson, $sendInfo){
 
 
 $massageArray = (explode(",",$text));
+$detail = (explode(".",$text));
+$delete = (explode("กับ",$text));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -43,7 +45,6 @@ else if ($text == "บันทึกการลา") {
     $replyText = json_decode($message);
 }
 
-
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$massageArray[1])) {
     $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$user_id=$massageArray[0]."','".$d_date=$massageArray[1]."','".$d_detail=$massageArray[2]."')";
     $myPDO->query($sql_query1);
@@ -54,10 +55,7 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
         $replyText = json_decode($message);
     }
 
-
-$detail = (explode(".",$text));
-
-if ($text == "ดูข้อมูลการลา") {
+else if ($text == "ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
     $test = "";
@@ -85,9 +83,7 @@ else if (!empty($detail[0])) {
 
 } 
 
-$delete = (explode("กับ",$text));
-
-if ($text == "ยกเลิกการลา") {
+else if ($text == "ยกเลิกการลา") {
     $message = '{
         "type" : "text",
         "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
