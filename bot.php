@@ -23,11 +23,17 @@ function sendMessage($replyJson, $sendInfo){
    curl_close($ch);
    return $result;
 }
-
-
+if(!isset($d_id)){
+    echo "pass";
+} else {
+    echo "not";
+}
+if($_POST) {
+    $d_id = $_POST['d_id'];
+}
 $massageArray = (explode(",",$text));
 $detail = (explode(".",$text));
-// $delete = (explode(","));
+$delete = (explode(",",$d_id));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
