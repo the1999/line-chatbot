@@ -27,11 +27,6 @@ function sendMessage($replyJson, $sendInfo){
 
 $massageArray = (explode(",",$text));
 
-$delete = (explode("กับ",$text));
-
-$detail = (explode(".",$text));
-
-
 if ($text == "ดูรายการหน่อย"){
     $message = '{
            "type" : "text",
@@ -47,13 +42,7 @@ else if ($text == "บันทึกการลา") {
     }';
     $replyText = json_decode($message);
 }
-elseif ($text == "ยกเลิกการลา") {
-    $message = '{
-        "type" : "text",
-        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
-    }';
-    $replyText = json_decode($message);
-}
+
 
 else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3[01]))|(((19|[2-9]\d)\d{2})\-(0[13456789]|1[012])\-(0[1-9]|[12]\d|30))|(((19|[2-9]\d)\d{2})\-02\-(0[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))\-02\-29))$/",$massageArray[1])) {
     $sql_query1 = "INSERT INTO tb_leave(user_id,d_date,d_detail) VALUES ('".$user_id=$massageArray[0]."','".$d_date=$massageArray[1]."','".$d_detail=$massageArray[2]."')";
@@ -66,7 +55,9 @@ else if (preg_match("/^((((19|[2-9]\d)\d{2})\-(0[13578]|1[02])\-(0[1-9]|[12]\d|3
     }
 
 
-else if ($text == "ดูข้อมูลการลา") {
+$detail = (explode(".",$text));
+
+if ($text == "ดูข้อมูลการลา") {
     $sql_query2 = "SELECT * FROM tb_user";
     $myPDO->query($sql_query2);    
     $test = "";
@@ -94,7 +85,15 @@ else if (!empty($detail[0])) {
 
 } 
 
+$delete = (explode("กับ",$text));
 
+if ($text == "ยกเลิกการลา") {
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณกับไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
+    }';
+    $replyText = json_decode($message);
+}
 else if (!empty($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
@@ -104,7 +103,6 @@ else if (!empty($delete[0])) {
     }';
     $replyText = json_decode($message);
 }
-
 
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
