@@ -89,14 +89,11 @@ else if (!empty($detail[0])) {
 
 } 
 elseif ($text == "ยกเลิกการลา") {
-    $text1 = "";    
-    if($text) {
-    $text1 = "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น ใส่User IDของคุณ,ใส่IDวันที่ต้องการลา";
-    }
-    echo $text1;
-    
-    $replyText["type"] = "text";
-    $replyText["text"] = "$text1";
+    $message = '{
+        "type" : "text",
+        "text" : "คุณต้องการยกเลิกการลาวันไหน  \n ตัวอย่างเช่น "ไอดี:ใส่ไอดีของคุณ,ไอดีวันที่ต้องการลา:ใส่IDวันที่ต้องการลา"
+    }';
+    $replyText = json_decode($message);
 }
 
 
