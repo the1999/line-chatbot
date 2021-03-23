@@ -75,7 +75,7 @@ else if ($text == "ดูข้อมูลการลา") {
 
 }
 
-else if (!isset($detail[0])) {
+else if (!empty($detail[0])) {
     $sql_query3 = "SELECT * FROM tb_leave WHERE user_id=".$detail[0];
     $myPDO->query($sql_query3); 
     $test1 = "";
@@ -95,7 +95,7 @@ elseif ($text == "ยกเลิกการลา") {
     }';
     $replyText = json_decode($message);
 }
-else if ($text == isset($delete[0])) {
+else if (!empty($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
     $message = '{
