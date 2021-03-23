@@ -27,7 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 
 $massageArray = (explode(",",$text));
 $detail = (explode(".",$text));
-$delete = (explode("กับ",$text));
+$delete = (explode(","));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
@@ -90,8 +90,7 @@ else if (!empty($detail[0])) {
 
 } 
 
-
-else if (!isset($delete[0])) {
+else if (!empty($delete[0])) {
     $sql_query7 = "DELETE FROM tb_leave WHERE user_id = $delete[0] AND d_id = $delete[1]";
     $myPDO->query($sql_query7);  
     $message = '{
