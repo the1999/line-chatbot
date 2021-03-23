@@ -27,7 +27,7 @@ function sendMessage($replyJson, $sendInfo){
 
 $massageArray = (explode(",",$text));
 $detail = (explode(".",$text));
-$delete = (explode(","));
+$delete = (explode(",",));
 
 if ($text == "ดูรายการหน่อย"){
     $message = '{
