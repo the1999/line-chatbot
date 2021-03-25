@@ -89,15 +89,16 @@ else if (!empty($detail[0])) {
 
 } 
 
-else if ($text == $delete[0]) {
-    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id= AND d_id=".$delete[0].$delete[1];
-    $myPDO->query($sql_query4);
-    $message '{
-        "type": "text",
-        "text": "ยกเลิกเรียบร้อย"
-    }';
-    $replyText = json_decode($message);
-
+if($_POST) {
+    if ($text == $delete[0]) {
+        $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=$delete[0] AND d_id=$delete[0]";
+        $myPDO->query($sql_query4); 
+        $message = '{
+            "type" : "text",
+            "text" : "ยกเลิกเรียบร้อย"
+        }';
+        $replyText = json_decode($message);
+    }
 }
 
 
