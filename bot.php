@@ -89,8 +89,8 @@ else if (!empty($detail[0])) {
 
 } 
 
-else if (!isset($delete[0])) {
-    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id='$delete[0]' AND d_id='$delete[1]'";
+else if (!isset('$delete[0]')) {
+    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=$delete[0] AND d_id=$delete[1]";
     $myPDO->query($sql_query4);
     $message '{
         "type": "text",
