@@ -90,7 +90,7 @@ else if (!empty($detail[0])) {
 } 
 
 if($_POST) {
-    if ($text == $delete[0]) {
+    if (isset($_POST['$delete[0]'])) {
         $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=$delete[0] AND d_id=$delete[0]";
         $myPDO->query($sql_query4); 
         $message = '{
