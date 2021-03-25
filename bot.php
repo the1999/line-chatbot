@@ -95,7 +95,7 @@ else if(!empty($delete[1])) {
         $myPDO->query($sql_query4); 
         $message = '{
             "type" : "text",
-            "text" : "ยกเลิกเรียบร้อย"
+            "text" : "ยกเลิกการลาเรียบร้อย"
         }';
         $replyText = json_decode($message);
 }
