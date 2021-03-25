@@ -89,17 +89,17 @@ else if (!empty($detail[0])) {
 
 } 
 
-// else if ($text == $delete[0]) {
-//     $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=$delete[0] AND d_id=$delete[1]";
-//     $myPDO->query($sql_query4);
-//     $message '{
-//         "type": "text",
-//         "text": "ยกเลิกเรียบร้อย"
-//     }';
-//     $replyText = json_decode($message);
+else if (!empty($delete[0])) {
+    $sql_query4 = "SELECT * FROM tb_leave WHERE user_id=$delete[0] AND d_id=$delete[1]";
+    $myPDO->query($sql_query4);
+    $message '{
+        "type": "text",
+        "text": "ยกเลิกเรียบร้อย"
+    }';
+    $replyText = json_decode($message);
 
-// }
-///หาวิธีให้เข้าตัวแปรแค่ตัวเดียว
+}
+
 
 $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
 $lineData['AccessToken'] = "t6aLTUxPu8V6uO+Mk51mAbUhzXglRM0SXXbxb4SVhFp+04unUqFmNz34MWQyQTao/SQJy+euTHs/s35Y45+N7B+p4PMLoHm63lrTwScrVyqhrQlKqY3BzU/tASZMxYO9X1khaUIMHKCxgER1V1W3AAdB04t89/1O/w1cDnyilFU=";
